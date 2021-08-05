@@ -24,7 +24,7 @@ describe('User entity test', () => {
             })
         } catch(error) {
             expect(error).toBeInstanceOf(InvalidUserData)
-            expect(error.message).toBe('Name must length must be between 1 and 150')
+            expect(error.message).toBe('Name must have length  between 1 and 150')
         }
 
     })
