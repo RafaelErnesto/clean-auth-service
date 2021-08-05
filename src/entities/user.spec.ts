@@ -26,6 +26,17 @@ describe('User entity test', () => {
             expect(error).toBeInstanceOf(InvalidUserData)
             expect(error.message).toBe('Name must have length  between 1 and 150')
         }
+    })
 
+    it('Ensure User returns a InvalidUserData when email is empty', () => {
+        try {
+            expect(User.create({
+                name: 'name',
+                email: '',
+                password: 'any_password'
+            })).toThrowError(InvalidUserData)
+        } catch(error) {
+            expect(error.message).toBe('Email cannot be empty')
+        }
     })
 })
