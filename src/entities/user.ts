@@ -19,7 +19,7 @@ export class User {
 
     private static validate(data: UserData): void {
         if(data.name.length  === 0 || data.name.length > 150) {
-            throw new InvalidUserData('Name must length must be between 1 and 150')
+            throw new InvalidUserData('Name must have length  between 1 and 150')
         }
     }
 
