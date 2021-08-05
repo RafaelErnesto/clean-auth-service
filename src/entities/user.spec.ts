@@ -39,4 +39,16 @@ describe('User entity test', () => {
             expect(error.message).toBe('Email cannot be empty')
         }
     })
+
+    it('Ensure User returns a InvalidUserData when email is not valid', () => {
+        try {
+            expect(User.create({
+                name: 'name',
+                email: 'any_email',
+                password: 'any_password'
+            })).toThrowError(InvalidUserData)
+        } catch(error) {
+            expect(error.message).toBe('Email is not in valid format')
+        }
+    })
 })
