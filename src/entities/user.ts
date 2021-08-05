@@ -29,6 +29,10 @@ export class User {
         if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email))) {
             throw new InvalidUserData('Email is not in valid format')
         }
+
+        if(data.password.length < 8) {
+            throw new InvalidUserData('Password length must be at least 8')
+        }
     }
 
 }
