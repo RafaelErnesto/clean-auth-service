@@ -25,6 +25,10 @@ export class User {
         if(data.email.length  === 0 ) {
             throw new InvalidUserData('Email cannot be empty')
         }
+
+        if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email))) {
+            throw new InvalidUserData('Email is not in valid format')
+        }
     }
 
 }
