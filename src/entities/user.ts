@@ -13,7 +13,14 @@ export class User {
     }
 
     public static create(data: UserData): User {
+        User.validate(data)
         return new User(data.name,data.email,data.password)
+    }
+
+    private static validate(data: UserData): void {
+        if(data.name.length  === 0 || data.name.length > 150) {
+            throw new InvalidUserData('Name must length must be between 1 and 150')
+        }
     }
 
 }
