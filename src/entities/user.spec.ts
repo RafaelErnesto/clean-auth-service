@@ -51,4 +51,16 @@ describe('User entity test', () => {
             expect(error.message).toBe('Email is not in valid format')
         }
     })
+
+    it('Ensure User returns a InvalidUserData when password length is shorter than 8', () => {
+        try {
+            expect(User.create({
+                name: 'name',
+                email: 'any@mail.com',
+                password: '1234567'
+            })).toThrowError(InvalidUserData)
+        } catch(error) {
+            expect(error.message).toBe('Password length must be at least 8')
+        }
+    })
 })
