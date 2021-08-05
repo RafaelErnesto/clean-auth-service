@@ -21,6 +21,10 @@ export class User {
         if(data.name.length  === 0 || data.name.length > 150) {
             throw new InvalidUserData('Name must have length  between 1 and 150')
         }
+
+        if(data.email.length  === 0 ) {
+            throw new InvalidUserData('Email cannot be empty')
+        }
     }
 
 }
