@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
       "module": "commonjs",
+      "lib": ["es2020"],
       "esModuleInterop": true,
       "target": "es6",
       "resolveJsonModule": true,
       "moduleResolution": "node",
       "outDir": "dist"
     },
-    "lib": ["es2020"],
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"]
   }
