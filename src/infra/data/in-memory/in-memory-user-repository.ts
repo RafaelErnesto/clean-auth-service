@@ -1,11 +1,17 @@
 import {UserRepository} from "../../../usecases/ports/user-repository"
-import * as users from './users.json'
+import users from './users.json'
 import {UserData} from "../../../entities/UserData";
 import {UserResponseData, UserUpdateData} from "../../../usecases/registerUser/helpers/user-response-data";
 
 export class InMemoryUserRepository implements UserRepository {
     add(data: UserData): Promise<UserResponseData> {
-        return Promise.resolve(undefined);
+        users.push({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            id: 5
+        })
+        return Promise.resolve(users[users.length -1]);
     }
 
     delete(id: any): Promise<void> {

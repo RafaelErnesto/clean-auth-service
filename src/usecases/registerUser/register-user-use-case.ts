@@ -1,6 +1,6 @@
-import {User} from "../../entities/user";
+import {UserResponseData} from "./helpers/user-response-data";
 
 export interface RegisterUserUseCase {
-    create(data: any): Promise<User>
+    create(data: any): Promise<UserResponseData>
 }
 

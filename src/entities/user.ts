@@ -18,11 +18,11 @@ export class User {
     }
 
     private static validate(data: UserData): void {
-        if(data.name.length  === 0 || data.name.length > 150) {
+        if(data.name === undefined || (data.name.length  === 0 || data.name.length > 150)) {
             throw new InvalidUserData('Name must have length  between 1 and 150')
         }
 
-        if(data.email.length  === 0 ) {
+        if(data.email === undefined || data.email.length  === 0 ) {
             throw new InvalidUserData('Email cannot be empty')
         }
 
@@ -30,7 +30,7 @@ export class User {
             throw new InvalidUserData('Email is not in valid format')
         }
 
-        if(data.password.length < 8) {
+        if(data.password === undefined || data.password.length < 8) {
             throw new InvalidUserData('Password length must be at least 8')
         }
     }
